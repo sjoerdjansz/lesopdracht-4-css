@@ -38,7 +38,9 @@
     --gradient: linear-gradient(90deg, rgba(72, 69, 228, 1) 0%, rgba(87, 34, 205, 1) 73%);
     --navbar-height: 3rem;
     --box-shadow-btn: 0 5px 5px 2px rgba(0, 0, 0, 0.20);
+    --box-shadow-image: 0px 6px 12px 2px rgba(0, 0, 0, 0.20);
 }
+
 
 /* ------------------------------- 2. Typography ----------------------------------- */
 
@@ -59,6 +61,10 @@ h2 {
     font-size: 1.5rem;
 }
 
+h3 {
+    font-size: 1.5rem;
+}
+
 
 /* ------------------------------- 3. Layout --------------------------------------- */
 
@@ -73,8 +79,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /*de vraag is of margin echt nodig is*/
-    margin: 0 2rem;
+    /*de vraag is of margin en padding echt nodig zijn */
+    /*margin: 0 2rem;*/
     padding: 0 2rem;
 }
 
@@ -90,6 +96,17 @@ body {
     flex-shrink: 1;
     padding: 4rem;
 
+}
+
+.inner-container-md {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    flex-grow: 0;
+    flex-shrink: 1;
+    padding: 2rem 0;
 }
 
 
@@ -193,6 +210,63 @@ li > a {
 }
 
 /* --------------- 4.3 Portfolio ------------------------- */
+
+.image-wrapper img {
+    width: 100%;
+    box-shadow: var(--box-shadow-image);
+
+}
+
+.image-wrapper {
+    flex-basis: 700px;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+}
+
+.portfolio {
+    background-color: var(--light-grey);
+}
+
+.portfolio-project {
+    display: flex;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 4rem;
+}
+
+.portfolio-content {
+    display: flex;
+    gap: 2rem;
+    flex-basis: 450px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem
+}
+
+.portfolio-content a {
+    text-transform: uppercase;
+    font-size: .6rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+}
+
+.portfolio-content img {
+    margin-top: -.5rem;
+}
+
+.portfolio-content h3 {
+    color: var(--black-copy);
+}
+
+/* --------------- 4.4 Services ------------------------- */
 
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
