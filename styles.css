@@ -147,6 +147,25 @@ button:hover {
     background-color: var(--pink-primary-hover)
 }
 
+.project-link {
+    position: relative;
+}
+
+.project-link::before {
+    content: "";
+    width: 15px;
+    position: absolute;
+    height: 2px;
+    left: 90px;
+    background-color: var(--dark-primary);
+    top: 50%;
+    transition: width 0.3s ease;
+    transform: translateY(-50%);
+}
+
+.project-link:hover::before {
+    width: 45px;
+}
 
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
@@ -163,7 +182,7 @@ header {
 nav > ul {
     display: flex;
     justify-content: flex-end;
-    gap: 1rem;
+    gap: 3rem;
     padding: 1rem 2rem;
     width: 100%;
 }
@@ -206,6 +225,7 @@ li > a {
 
 
 .hello-content-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -221,11 +241,46 @@ li > a {
     padding-top: 2rem;
 }
 
+.hello-content-container::after {
+    position: absolute;
+    content: "hello";
+    color: var(--purple-secondary);
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 24rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    white-space: nowrap;
+}
+
 /* --------------- 4.3 Portfolio ------------------------- */
 
 
 .portfolio {
+    position: relative;
     background-color: var(--light-grey);
+    padding: 4rem 0;
+}
+
+.work {
+    position: relative;
+    z-index: 1;
+}
+
+.work::after {
+    position: absolute;
+    content: "work";
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 24rem;
+    left: 50%;
+    top: 8%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    white-space: nowrap;
 }
 
 .portfolio-project {
@@ -244,7 +299,7 @@ li > a {
 
 .image-wrapper {
     flex-basis: 800px;
-    flex-grow: 1;
+    flex-grow: 0;
     flex-shrink: 1;
 }
 
@@ -282,6 +337,7 @@ li > a {
 /* --------------- 4.4 Services ------------------------- */
 
 .services-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -293,11 +349,26 @@ li > a {
     padding: 2rem 0;
 }
 
+.services-container::after {
+    position: absolute;
+    content: "services";
+    color: var(--purple-secondary);
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 24rem;
+    left: 50%;
+    top: 8%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    white-space: nowrap;
+
+}
 
 .service-card {
     display: flex;
     flex-direction: column;
     flex-basis: 400px;
+    background-color: #fff;
     border: .5px solid var(--dark-primary);
     padding: 3rem;
     gap: 1rem;
@@ -400,14 +471,24 @@ footer p {
 
     .portfolio-content {
         flex-basis: auto;
-
     }
 
     .portfolio > div > article:nth-child(even) {
         flex-direction: column-reverse;
     }
 
-;
+    .hello-content-container::after {
+        font-size: 13rem;
+        top: 25%;
+    }
 
+    .work::after {
+        font-size: 13rem;
+        top: 2%;
+    }
 
+    .services-container::after {
+        font-size: 9rem;
+        top: 2%;
+    }
 }
