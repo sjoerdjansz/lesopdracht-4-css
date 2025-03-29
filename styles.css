@@ -25,9 +25,11 @@
 /* ------------------------------- 1.1. Colors ----------------------------------- */
 
 :root {
-    --dark-primary: #5722CD;
+    --dark-primary: hsl(259, 72%, 47%);
+    --dark-primary-hover: hsl(259, 72%, 80%);
     --blue-primary: #4845E4;
-    --pink-primary: #ED4385;
+    --pink-primary: hsl(337, 83%, 60%);
+    --pink-primary-hover: hsl(337, 83%, 70%);
     --black-copy: #0C0C0C;
     --purple-secondary: #F2F0FF;
     --light-grey: #F3F6F9;
@@ -44,12 +46,16 @@
 
 /* ------------------------------- 2. Typography ----------------------------------- */
 
-p, a, li, span, label {
+body {
     font-family: "Roboto", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Merriweather", sans-serif;
+}
+
+input, textarea, button {
+    font-family: inherit;
 }
 
 h1 {
@@ -60,7 +66,6 @@ h1 {
 h2 {
     font-size: 1.6rem;
     color: var(--black-copy);
-
 }
 
 h3 {
@@ -84,26 +89,25 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 5px dashed darkcyan;
-    margin: 0 2rem;
 }
 
 .inner-container-sm {
     display: flex;
     flex-direction: column;
-    flex-basis: 800px;
+    flex-basis: 768px;
     flex-grow: 0;
     flex-shrink: 1;
     align-items: center;
-    background-color: cyan;
+    padding: 2rem 0;
 }
 
 .inner-container-md {
     display: flex;
     flex-direction: column;
-    flex-basis: 1200px;
+    flex-basis: 1280px;
     flex-grow: 0;
     flex-shrink: 1;
+    padding: 2rem 0;
 }
 
 
@@ -120,6 +124,11 @@ a {
     font-weight: 400;
 }
 
+a:hover {
+    color: var(--dark-primary-hover);
+}
+
+
 button {
     padding: 1rem 2.4rem;
     background-color: var(--pink-primary);
@@ -131,6 +140,11 @@ button {
     border-radius: 50px;
     outline: none;
     text-transform: uppercase;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--pink-primary-hover)
 }
 
 
@@ -143,7 +157,7 @@ header {
     position: relative;
     background: rgb(72, 69, 228);
     background: linear-gradient(90deg, rgba(72, 69, 228, 1) 0%, rgba(87, 34, 205, 1) 100%);
-    padding-bottom: 6rem;
+    padding: 0 2rem 6rem;
 }
 
 nav {
@@ -202,7 +216,7 @@ li > a {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
-    padding: 4rem 0;
+    padding: 4rem 2rem;
 }
 
 .hello-content-container h2 {
@@ -215,18 +229,6 @@ li > a {
 
 /* --------------- 4.3 Portfolio ------------------------- */
 
-.image-wrapper img {
-    width: 100%;
-    box-shadow: var(--box-shadow-image);
-
-}
-
-.image-wrapper {
-    flex-basis: 700px;
-    flex-grow: 0;
-    flex-shrink: 1;
-
-}
 
 .portfolio {
     background-color: var(--light-grey);
@@ -234,31 +236,45 @@ li > a {
 
 .portfolio-project {
     display: flex;
-    flex-basis: 100%;
     flex-grow: 1;
     flex-shrink: 1;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
     padding: 2rem 0;
-    gap: 4rem;
+    gap: 2rem;
+}
+
+.image-wrapper img {
+    width: 100%;
+    box-shadow: var(--box-shadow-image);
+}
+
+.image-wrapper {
+    flex-basis: 800px;
+    /*wellicht grow op 0 toch beter, maar leek meer als het voorbeeld met 1.*/
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.portfolio > div > article:nth-child(even) {
+    flex-direction: row-reverse;
 }
 
 .portfolio-content {
     display: flex;
-    gap: 2rem;
-    flex-basis: 450px;
+    flex-basis: 400px;
     flex-shrink: 1;
     flex-grow: 0;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem 2rem
+    gap: 2rem;
+    padding: 0 2rem
 }
+
 
 .portfolio-content a {
     text-transform: uppercase;
     font-size: .6rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: .1rem;
 }
 
@@ -272,25 +288,24 @@ li > a {
 
 /* --------------- 4.4 Services ------------------------- */
 
-.services {
+.services-container {
     display: flex;
     flex-direction: row;
-    background-color: yellow;
-    flex-wrap: wrap;
-    flex-basis: 100%;
     justify-content: center;
     align-items: stretch;
+    flex-wrap: wrap;
+    flex-grow: 0;
+    flex-shrink: 1;
+    gap: 2rem;
     padding: 2rem 0;
 }
+
 
 .service-card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    flex-basis: 350px;
     border: .5px solid var(--dark-primary);
-    flex-basis: 25rem;
-    flex-grow: 0;
-    flex-shrink: 1;
     padding: 2rem;
     gap: 1rem;
 }
@@ -302,14 +317,16 @@ li > a {
 /* --------------- 4.5 Contact form ------------------------- */
 
 .contact {
-    background-color: var(--dark-primary);
+    background: rgb(72, 69, 228);
+    background: linear-gradient(90deg, rgba(72, 69, 228, 1) 0%, rgba(87, 34, 205, 1) 100%);
+    padding: 2rem;
 }
 
 .form-title-container {
     flex-direction: column;
     display: flex;
     gap: 1rem;
-    padding: 2rem 0;
+    padding-bottom: 2rem;
 }
 
 .form-title-container h2 {
@@ -323,14 +340,10 @@ li > a {
 
 .contact form {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    align-items: stretch;
-    flex-basis: 100%;
-    flex-grow: 1;
-    flex-shrink: 1;
     text-align: left;
     gap: .2rem;
-
 }
 
 .contact form > label {
@@ -338,17 +351,22 @@ li > a {
 }
 
 .contact form > input, textarea {
-    padding: .8rem .5rem;
+    padding: 1rem;
     color: var(--black-copy);
     outline: none;
+    width: 100%;
     margin-bottom: 2rem;
     border: none;
-    background-color: red;
     border-radius: .2rem;
 }
 
-form button {
+input::placeholder, textarea::placeholder {
+    color: var(--regular-grey);
+    font-family: "Roboto", sans-serif;
+}
 
+.submit-btn {
+    align-self: center;
 }
 
 
