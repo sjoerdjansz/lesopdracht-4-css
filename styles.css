@@ -98,7 +98,7 @@ body {
     flex-grow: 0;
     flex-shrink: 1;
     align-items: center;
-    padding: 8rem 0;
+    padding: 12rem 0;
 }
 
 .inner-container-md {
@@ -107,9 +107,17 @@ body {
     flex-basis: 1280px;
     flex-grow: 0;
     flex-shrink: 1;
-    padding: 8rem 0;
+    padding: 12rem 0;
 }
 
+.inner-container-lg {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1440px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    padding: 12rem 0;
+}
 
 /* --------------- 3.2 Other --------------------------- */
 
@@ -177,6 +185,27 @@ header {
     background: rgb(72, 69, 228);
     background: var(--gradient);
     padding: 0 0 6rem;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 90%);
+}
+
+header::after {
+    display: flex;
+    position: absolute;
+    content: "";
+    background-image: url(assets/noise-texture.png);
+    background-repeat: repeat;
+    background-position: top left;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 60%;
+}
+
+.nav-links-container {
+    width: 100%;
+    max-width: 1440px;
 }
 
 nav > ul {
@@ -184,7 +213,6 @@ nav > ul {
     justify-content: flex-end;
     gap: 3rem;
     padding: 1rem 2rem;
-    width: 100%;
 }
 
 li > a {
@@ -197,7 +225,7 @@ li > a {
     flex-direction: column;
     gap: 1.5rem;
     text-align: center;
-    padding: 2rem 2rem 4rem;
+    padding: 4rem 2rem 6rem;
 }
 
 
@@ -211,15 +239,6 @@ li > a {
     width: 50px;
     bottom: 0;
 }
-
-/*.header-triangle {*/
-/*    width: 0;*/
-/*    height: 0;*/
-/*    border-bottom: 4rem solid transparent;*/
-/*    border-right: 100vw solid white;*/
-/*    border-left: 0 solid transparent;*/
-/*}*/
-
 
 /* --------------- 4.2 Introduction ------------------- */
 
@@ -247,7 +266,7 @@ li > a {
     color: var(--purple-secondary);
     font-family: "Roboto", sans-serif;
     font-weight: 700;
-    font-size: 24rem;
+    font-size: 22rem;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -261,6 +280,7 @@ li > a {
 .portfolio {
     position: relative;
     background-color: var(--light-grey);
+    clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
 }
 
 .work {
@@ -274,7 +294,7 @@ li > a {
     color: #ffffff;
     font-family: "Roboto", sans-serif;
     font-weight: 700;
-    font-size: 24rem;
+    font-size: 22rem;
     left: 50%;
     top: 10%;
     transform: translate(-50%, -50%);
@@ -298,7 +318,7 @@ li > a {
 
 .image-wrapper {
     flex-basis: 800px;
-    flex-grow: 0;
+    flex-grow: 1;
     flex-shrink: 1;
 }
 
@@ -353,9 +373,9 @@ li > a {
     color: var(--purple-secondary);
     font-family: "Roboto", sans-serif;
     font-weight: 700;
-    font-size: 24rem;
+    font-size: 22rem;
     left: 50%;
-    top: 5%;
+    top: 0;
     transform: translate(-50%, -50%);
     z-index: -1;
     white-space: nowrap;
@@ -382,7 +402,25 @@ li > a {
     background: rgb(72, 69, 228);
     background: var(--gradient);
     padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 100%);
 }
+
+.contact::after {
+    display: flex;
+    position: absolute;
+    content: "";
+    background-image: url(assets/noise-texture.png);
+    background-repeat: repeat;
+    background-position: top left;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 60%;
+}
+
 
 .form-title-container {
     flex-direction: column;
@@ -457,7 +495,7 @@ footer p {
     .portfolio-project {
         flex-direction: column-reverse;
         gap: 1rem;
-        padding: 0 1rem;
+        padding: 1rem;
     }
 
     .image-wrapper {
@@ -475,17 +513,17 @@ footer p {
     }
 
     .hello-content-container::after {
-        font-size: 13rem;
+        font-size: 12rem;
         top: 25%;
     }
 
     .work::after {
-        font-size: 13rem;
-        top: 5%;
+        font-size: 12rem;
+        top: 8%;
     }
 
     .services-container::after {
-        font-size: 10rem;
+        font-size: 9rem;
         top: 0;
     }
 }
